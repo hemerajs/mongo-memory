@@ -2,7 +2,7 @@
 
 const Mongodb = require('mongodb')
 const Fs = require('fs')
-const Mkdirp = require('mkdirp');
+const Mkdirp = require('mkdirp')
 const MongodbPrebuilt = require('mongodb-prebuilt')
 
 function MongoInMemory (port, dbPath) {
@@ -15,7 +15,6 @@ function MongoInMemory (port, dbPath) {
 }
 
 MongoInMemory.prototype.start = function () {
-
   Mkdirp.sync(this.databasePath)
 
   const mongodHelper = new MongodbPrebuilt.MongodHelper(['--port', this.port, '--dbpath', this.databasePath, '--storageEngine', 'ephemeralForTest'])

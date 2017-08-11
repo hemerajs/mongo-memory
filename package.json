@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node ./node_modules/rimraf ./test/tempdb && node ./node_modules/mocha/bin/mocha tests",
+    "lint": "standard --fix ./**/*.js",
     "patch": "np patch --yolo",
     "minor": "np minor --yolo",
     "major": "np major --yolo"
@@ -46,6 +47,18 @@
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
     "mongodb": "^2.2.31",
-    "rimraf": "^2.6.1"
+    "rimraf": "^2.6.1",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "ignore": [
+      "node_modules"
+    ],
+    "envs": [
+      "es6",
+      "node",
+      "mocha"
+    ],
+    "globals": []
   }
 }

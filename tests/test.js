@@ -1,18 +1,21 @@
 'use strict'
 
-const expect = require('chai').expect
+/* eslint-disable no-unused-expressions */
 
-var MongoInMemory = require('./../')
+const expect = require('chai').expect
+const Path = require('path')
+
+const MongoInMemory = require('./../')
 
 describe('mock-in-memory', function () {
-  this.timeout(0)
+  this.timeout(5000)
 
-  var mongoInMemory
-  var port = 8000
-  var databaseName = 'testDatabaseName'
+  let mongoInMemory
+  const port = 8000
+  const databaseName = 'testDatabaseName'
 
   before(function () {
-    mongoInMemory = new MongoInMemory(port, __dirname + '/tempdb/.data')
+    mongoInMemory = new MongoInMemory(port, Path.join(__dirname, '/tempdb/.data'))
     return mongoInMemory.start()
   })
 
