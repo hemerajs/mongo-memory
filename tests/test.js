@@ -16,7 +16,7 @@ describe('mock-in-memory', function () {
 
   before(function () {
     mongoInMemory = new MongoInMemory(port, Path.join(__dirname, '/tempdb/.data'))
-    return mongoInMemory.start().catch(console.error)
+    return mongoInMemory.start()
   })
 
   after(function () {
