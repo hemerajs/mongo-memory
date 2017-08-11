@@ -8,7 +8,7 @@ const Path = require('path')
 const MongoInMemory = require('./../')
 
 describe('mock-in-memory', function () {
-  this.timeout(5000)
+  this.timeout(50000)
 
   let mongoInMemory
   const port = 8000
