@@ -1,0 +1,48 @@
+{
+  "name": "mongo-memory",
+  "version": "0.0.0",
+  "description": "mongodb in memory for testing or mocking",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/rimraf ./test/tempdb && node ./node_modules/mocha/bin/mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hemerajs/mongo-memory.git"
+  },
+  "keywords": [
+    "mongodb",
+    "mongo",
+    "mock database",
+    "testing",
+    "mocking",
+    "inmemory",
+    "in memory",
+    "stubs",
+    "tdd"
+  ],
+  "author": {
+    "name": "Dustin Deus",
+    "email": "deusdustin@gmail.com",
+    "url": "https://github.com/starptech"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hemerajs/mongo-memory/issues"
+  },
+  "homepage": "https://github.com/hemerajs/mongo-memory#readme",
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "mongodb": "^2.2.31",
+    "mongodb-prebuilt": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "mongodb": "^2.2.31",
+    "rimraf": "^2.6.1"
+  }
+}
