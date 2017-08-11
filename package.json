@@ -4,7 +4,8 @@
   "description": "mongodb in memory for testing or mocking",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node ./download.js",
+    "download": "node download.js",
+    "postinstall": "npm run download",
     "test": "node ./node_modules/rimraf ./test/tempdb && node ./node_modules/mocha/bin/mocha tests",
     "lint": "standard --fix ./**/*.js",
     "patch": "np patch --yolo",
