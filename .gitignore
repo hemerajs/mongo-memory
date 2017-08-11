@@ -3,4 +3,3 @@ node_modules
 temp
 mongod.lock
 storage.bson
-package-lock.json
