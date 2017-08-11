@@ -38,7 +38,7 @@ mongoServerInstance.stop()
 
 ## Background 
 
-Mongodb storageEngione [ephemeralForTest](https://docs.mongodb.com/v3.4/release-notes/3.2/#ephemeralfortest-storage-engine) is used.
+Mongodb storageEngine [ephemeralForTest](https://docs.mongodb.com/v3.4/release-notes/3.2/#ephemeralfortest-storage-engine) is used.
 
 ## Credits
 
