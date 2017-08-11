@@ -50,3 +50,4 @@ Most code was copied from [mongo-in-memory](https://github.com/giorgio-zamparell
 - Update mongodb-prebuilt to the newest version
 - Update dependencies and tests
 - Gracefully shutdown Mongodb when execute stop
+- Create recursively databasePath
