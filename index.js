@@ -17,7 +17,7 @@ function MongoInMemory (port, dbPath) {
 MongoInMemory.prototype.start = function () {
   Mkdirp.sync(this.databasePath)
 
-  const mongodHelper = new MongodbPrebuilt.MongodHelper(['--port', this.port, '--dbpath', this.databasePath, '--storageEngine', 'ephemeralForTest'])
+  const mongodHelper = new MongodbPrebuilt.MongodHelper(['--bind_ip', this.host, '--port', this.port, '--dbpath', this.databasePath, '--storageEngine', 'ephemeralForTest'])
   this.mongodHelper = mongodHelper
   return mongodHelper.run()
 }
