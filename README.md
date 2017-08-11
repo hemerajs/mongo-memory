@@ -1,4 +1,6 @@
-# MONGO-IN-MEMORY [![Build Status](https://travis-ci.org/hemerajs/mongo-memory.png)](https://travis-ci.org/hemerajs/mongo-memory)
+# Mongo Memory
+
+[![Build Status](https://travis-ci.org/hemerajs/mongo-memory.png)](https://travis-ci.org/hemerajs/mongo-memory)
 
 Bootstrap programmatically Mongodb for testing or mocking during development.
 
