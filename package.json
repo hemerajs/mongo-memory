@@ -4,7 +4,10 @@
   "description": "mongodb in memory for testing or mocking",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/rimraf ./test/tempdb && node ./node_modules/mocha/bin/mocha tests"
+    "test": "node ./node_modules/rimraf ./test/tempdb && node ./node_modules/mocha/bin/mocha tests",
+    "patch": "np patch --yolo",
+    "minor": "np minor --yolo",
+    "major": "np major --yolo"
   },
   "repository": {
     "type": "git",
