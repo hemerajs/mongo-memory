@@ -1,6 +1,9 @@
 # Mongo Memory
 
 [![Build Status](https://travis-ci.org/hemerajs/mongo-memory.png)](https://travis-ci.org/hemerajs/mongo-memory)
+[![NPM Downloads](https://img.shields.io/npm/dt/mongo-memory.svg?style=flat)](https://www.npmjs.com/package/mongo-memory)
+[![npm](https://img.shields.io/npm/v/mongo-memory.svg?maxAge=3600)](https://www.npmjs.com/package/mongo-memory)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
 
 Bootstrap programmatically Mongodb for testing or mocking during development.
 
