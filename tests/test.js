@@ -11,7 +11,7 @@ describe('mock-in-memory', function () {
   this.timeout(50000)
 
   let mongoInMemory
-  const port = 8000
+  const port = 8568
   const databaseName = 'testDatabaseName'
 
   before(function () {
