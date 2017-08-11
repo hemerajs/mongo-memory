@@ -20,7 +20,7 @@ npm install mongo-memory
 const MongoInMemory = require('mongo-memory')
 
 const port = 8000
-const dbPath = ".." // Mongodb placed some metadata
+const dbPath = "./tempb/.data" // Mongodb placed some metadata
 const mongoServerInstance = new MongoMemory(port, dbPath)
 
 mongoServerInstance.start().then(server) => {
