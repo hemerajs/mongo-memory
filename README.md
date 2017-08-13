@@ -46,7 +46,7 @@ $ npm run test
 
 ## What about BSON Types ?
 
-You can use the [EJSON](https://github.com/mongodb-js/extended-json) format to express BSON Types with JSON e.g **ObjectId**.
+You can use the [EJSON](https://github.com/mongodb-js/extended-json) format to express BSON Types with JSON e.g **ObjectId**, **Date**.
 
 ```
 {
