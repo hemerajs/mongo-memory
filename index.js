@@ -3,7 +3,10 @@
 const Mongodb = require('mongodb')
 const Fs = require('fs')
 const Mkdirp = require('mkdirp')
+const Path = require('path')
 const MongodbPrebuilt = require('mongodb-prebuilt')
+const serialize = require('mongodb-extended-json').serialize
+const deserialize = require('mongodb-extended-json').deserialize
 
 function MongoInMemory (port, dbPath) {
   this.databasePath = dbPath
@@ -12,6 +15,9 @@ function MongoInMemory (port, dbPath) {
   this.port = port || 27017
   this.connections = {}
   this.mongodHelper = null
+  this.serialize = serialize
+  this.deserialize = deserialize
+  this.mongodb = Mongodb
 }
 
 MongoInMemory.prototype.start = function () {
@@ -45,7 +51,8 @@ MongoInMemory.prototype.getCollection = function (databaseName, collection) {
 
 MongoInMemory.prototype.addDocument = function (databaseName, collectionName, document) {
   return this.getCollection(databaseName, collectionName).then(function (collection) {
-    return collection.insertOne(document).then((result) => {
+    const ejsonDoc = deserialize(document)
+    return collection.insertOne(ejsonDoc).then((result) => {
       if (result.n === 0) {
         return Promise.reject(new Error('no document was actually saved in the database'))
       } else {
@@ -55,9 +62,17 @@ MongoInMemory.prototype.addDocument = function (databaseName, collectionName, do
   })
 }
 
-MongoInMemory.prototype.getDocument = function (databaseName, collectionName, documentId) {
+MongoInMemory.prototype.getDocumentById = function (databaseName, collectionName, documentId) {
   return this.getCollection(databaseName, collectionName).then((collection) => {
-    return collection.findOne({ '_id': documentId })
+    let ejsonDoc
+
+    if (typeof documentId !== 'string') {
+      ejsonDoc = deserialize(documentId)
+    } else {
+      ejsonDoc = { '_id': documentId }
+    }
+
+    return collection.findOne(ejsonDoc)
   })
 }
 
@@ -76,7 +91,8 @@ MongoInMemory.prototype.addDirectoryOfCollections = function (databaseName, coll
         for (let filename of filenames) {
           var documentPath = collectionPath + '/' + filename
           let document = JSON.parse(Fs.readFileSync(documentPath, 'utf8'))
-          connection.collection(collection).insertOne(document)
+          const ejsonDoc = deserialize(document)
+          connection.collection(collection).insertOne(ejsonDoc)
           documentsAdded.push(collection + '/' + filename)
         }
       }

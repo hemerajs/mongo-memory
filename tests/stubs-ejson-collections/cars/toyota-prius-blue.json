@@ -1,0 +1,8 @@
+{
+    "_id" : {
+        "$oid": "ec939793b7d8fe8f9f2aa707"
+    },
+    "manufacturer" : "Piaggio",
+    "model" : "Vespa",
+    "color": "white"
+}

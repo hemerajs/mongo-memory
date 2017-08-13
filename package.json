@@ -40,6 +40,7 @@
   "dependencies": {
     "mkdirp": "^0.5.1",
     "mongodb": "^2.2.31",
+    "mongodb-extended-json": "^1.10.0",
     "mongodb-prebuilt": "^6.3.3"
   },
   "engines": {

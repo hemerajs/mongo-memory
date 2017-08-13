@@ -51,11 +51,56 @@ describe('mock-in-memory', function () {
     var collection = 'airplanes'
 
     return mongoInMemory.addDocument(databaseName, collection, document).then((documentActual) => {
-      expect(document).to.exist
-      expect(document._id).to.exist
+      expect(documentActual).to.exist
+      expect(documentActual._id).to.exist
 
-      return mongoInMemory.getDocument(databaseName, collection, document._id).then((documentActual) => {
+      return mongoInMemory.getDocumentById(databaseName, collection, documentActual._id).then((documentActual) => {
         expect(documentActual).to.exist
+      })
+    })
+  })
+
+  it('getDocumentById() should get a document successfully', function () {
+    var document = { 'manufacturer': 'Boeing', 'model': '747', 'color': 'white' }
+
+    var collection = 'airplanes'
+
+    return mongoInMemory.addDocument(databaseName, collection, document).then((documentActual) => {
+      expect(documentActual).to.exist
+      expect(documentActual._id).to.exist
+
+      return mongoInMemory.getDocumentById(databaseName, collection, documentActual._id).then((documentActual) => {
+        expect(documentActual).to.exist
+      })
+    })
+  })
+
+  it('getDocumentById() should get a document with EJSON successfully', function () {
+    var document = { '_id': {'$oid': '53c2ab5e4291b17b666d742c'}, 'manufacturer': 'Boeing', 'model': '747', 'color': 'white' }
+
+    var collection = 'airplanes'
+
+    return mongoInMemory.addDocument(databaseName, collection, document).then((documentActual) => {
+      expect(documentActual).to.exist
+      expect(documentActual._id).to.exist
+
+      return mongoInMemory.getDocumentById(databaseName, collection, { '_id': {'$oid': '53c2ab5e4291b17b666d742c'} }).then((documentActual) => {
+        expect(documentActual).to.exist
+      })
+    })
+  })
+
+  it('addDocument() should add a document with EJSON successfully', function () {
+    var document = {'_id': {'$oid': '53c2ab5e4291b17b666d742a'}, 'last_seen_at': {'$date': 1405266782008}, 'display_name': {'$undefined': true}}
+
+    var collection = 'airplanes'
+
+    return mongoInMemory.addDocument(databaseName, collection, document).then((documentActual) => {
+      expect(documentActual).to.exist
+      expect(documentActual._id).to.exist
+
+      return mongoInMemory.getDocumentById(databaseName, collection, documentActual._id).then((documentActual) => {
+        expect(documentActual._id.toString()).to.be.equals('53c2ab5e4291b17b666d742a')
       })
     })
   })
@@ -79,6 +124,23 @@ describe('mock-in-memory', function () {
             expect(piaggioVespaWhiteActual).to.exist
             expect(piaggioVespaWhite).to.be.deep.equal(piaggioVespaWhiteActual)
           })
+        })
+      })
+    })
+  })
+
+  it('addDirectoryOfCollections() should add stubs EJSON documents to the correct collections', function () {
+    let collectionsPath = './tests/stubs-ejson-collections'
+    let ejson = require('./stubs-ejson-collections/cars/toyota-prius-blue.json')
+
+    return mongoInMemory.addDirectoryOfCollections(databaseName, collectionsPath).then((documentsAdded) => {
+      expect(documentsAdded.length).to.equal(1)
+
+      return mongoInMemory.getConnection(databaseName).then((connection) => {
+        expect(connection).to.exist
+
+        return connection.collection('cars').findOne({ '_id': mongoInMemory.mongodb.ObjectId(ejson._id.$oid) }).then((ejsonResult) => {
+          expect(ejsonResult._id.toString()).to.be.equals('ec939793b7d8fe8f9f2aa707')
         })
       })
     })

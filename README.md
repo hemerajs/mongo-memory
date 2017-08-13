@@ -26,9 +26,12 @@ mongoServerInstance.start().then(server) => {
 
     mongoServerInstance.getMongouri('myDatabaseName')
     mongoServerInstance.getCollection('coll1')
-    mongoServerInstance.getDocument('myDatabaseName', 'coll1', "<id>")
-    mongoServerInstance.addDocument('myDatabaseName', 'coll1', { a: 1, b: 2 })
+    mongoServerInstance.getDocumentById('myDatabaseName', 'coll1', "<id>")
+    mongoServerInstance.addDocumentById('myDatabaseName', 'coll1', { a: 1, b: 2 })
     mongoServerInstance.addDirectoryOfCollections('myDatabaseName', '<path>')
+    mongoServerInstance.mongodb.ObjectId
+    mongoServerInstance.serialize // EJSON
+    mongoServerInstance.deserialize // EJSON
 
 })
 
@@ -39,6 +42,21 @@ mongoServerInstance.stop()
 
 ```
 $ npm run test
+```
+
+## What about BSON Types ?
+
+You can use the [EJSON](https://github.com/mongodb-js/extended-json) format to express BSON Types with JSON e.g **ObjectId**.
+
+```
+{
+    "_id" : {
+        "$oid": "ec939793b7d8fe8f9f2aa707"
+    },
+    'last_seen_at': {
+        '$date': 1405266782008
+    }
+}
 ```
 
 ## Background 
