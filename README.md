@@ -74,6 +74,7 @@ Most code was copied from [mongo-in-memory](https://github.com/giorgio-zamparell
 - Don't generate random folders
 - Clean up of metadata must be handled by user
 - 100% Promise API
+- Support for BSON Types via EJSON
 - Update mongodb-prebuilt to the newest version
 - Update dependencies and tests
 - Gracefully shutdown Mongodb when execute stop
