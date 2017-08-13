@@ -27,9 +27,9 @@ mongoServerInstance.start().then(server) => {
     mongoServerInstance.getMongouri('myDatabaseName')
     mongoServerInstance.getCollection('coll1')
     mongoServerInstance.getDocumentById('myDatabaseName', 'coll1', "<id>")
-    mongoServerInstance.addDocumentById('myDatabaseName', 'coll1', { a: 1, b: 2 })
+    mongoServerInstance.addDocument('myDatabaseName', 'coll1', { _id : "foo" })
     mongoServerInstance.addDirectoryOfCollections('myDatabaseName', '<path>')
-    mongoServerInstance.mongodb.ObjectId
+    mongoServerInstance.mongodb.ObjectId // Mongodb driver
     mongoServerInstance.serialize // EJSON
     mongoServerInstance.deserialize // EJSON
 
