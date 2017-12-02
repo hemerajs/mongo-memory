@@ -44,6 +44,10 @@ mongoServerInstance.stop()
 $ npm run test
 ```
 
+## Caveats
+
+- Due to a pending PR in mongodb-prebuilt package newer mongodb versions aren't correctly detected as started https://github.com/winfinit/mongodb-prebuilt/pull/40
+
 ## What about BSON Types ?
 
 You can use the [EJSON](https://github.com/mongodb-js/extended-json) format to express BSON Types with JSON e.g **ObjectId**, **Date**.
