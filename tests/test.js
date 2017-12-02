@@ -118,10 +118,12 @@ describe('mock-in-memory', function () {
 
         return connection.collection('cars').findOne({ '_id': toyotaPriusBlue._id }).then((toyotaPriusBlueActual) => {
           expect(toyotaPriusBlueActual).to.exist
+          expect(toyotaPriusBlueActual._id).to.be.equals('d74bf49333792abb24f048fe')
           expect(toyotaPriusBlue).to.be.deep.equal(toyotaPriusBlueActual)
 
           return connection.collection('motorbikes').findOne({ '_id': piaggioVespaWhite._id }).then((piaggioVespaWhiteActual) => {
             expect(piaggioVespaWhiteActual).to.exist
+            expect(piaggioVespaWhiteActual._id).to.be.equals('ec939793b7d8fe8f9f2aa807')
             expect(piaggioVespaWhite).to.be.deep.equal(piaggioVespaWhiteActual)
           })
         })
