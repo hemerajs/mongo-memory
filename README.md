@@ -1,5 +1,5 @@
 # Mongo Memory
-
+[![Build Status](https://travis-ci.org/hemerajs/mongo-memory.svg?branch=master)](https://travis-ci.org/hemerajs/mongo-memory)
 [![NPM Downloads](https://img.shields.io/npm/dt/mongo-memory.svg?style=flat)](https://www.npmjs.com/package/mongo-memory)
 [![npm](https://img.shields.io/npm/v/mongo-memory.svg?maxAge=3600)](https://www.npmjs.com/package/mongo-memory)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
@@ -43,6 +43,10 @@ mongoServerInstance.stop()
 ```
 $ npm run test
 ```
+
+## Caveats
+
+- Due to a pending PR in mongodb-prebuilt package newer mongodb versions aren't correctly detected as started https://github.com/winfinit/mongodb-prebuilt/pull/40
 
 ## What about BSON Types ?
 
