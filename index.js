@@ -1,5 +1,6 @@
 'use strict'
 
+require('make-promises-safe') // installs an 'unhandledRejection' handler
 const Mongodb = require('mongodb')
 const Fs = require('fs')
 const Mkdirp = require('mkdirp')

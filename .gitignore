@@ -4,3 +4,4 @@ temp
 mongod.lock
 storage.bson
 tempdb
+package-lock.json

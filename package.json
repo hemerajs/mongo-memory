@@ -38,6 +38,7 @@
   },
   "homepage": "https://github.com/hemerajs/mongo-memory#readme",
   "dependencies": {
+    "make-promises-safe": "^1.1.0",
     "mkdirp": "^0.5.1",
     "mongodb": "^2.2.31",
     "mongodb-extended-json": "^1.10.0",
