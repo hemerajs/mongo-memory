@@ -46,7 +46,8 @@ $ npm run test
 
 ## Caveats
 
-- Due to a pending PR in mongodb-prebuilt package newer mongodb versions aren't correctly detected as started https://github.com/winfinit/mongodb-prebuilt/pull/40
+- **PR Pending**: Newer mongodb versions aren't correctly detected as started https://github.com/winfinit/mongodb-prebuilt/pull/40
+- **PR Pending**: Due to a wrong protocol there are some issue to download the offical mongodb server https://github.com/winfinit/mongodb-download/pull/31
 
 ## What about BSON Types ?
 
