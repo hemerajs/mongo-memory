@@ -1,5 +1,7 @@
 'use strict'
 
+process.on('unhandledRejection', up => { throw up })
+
 /* eslint-disable no-unused-expressions */
 
 const expect = require('chai').expect
